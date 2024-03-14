@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Labrada:wght@400;700&family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --light: #ffffff;
+  --primary: #082253;
+  --light-primary: #d0e5f9;
+  --secondary: #0171df;
+  --grey: #f8f9fa;
+  --dark-grey: #9aa0a6;
+  --dark: #0e1013;
+  --danger: #ff4040;
+  --light-danger: #fecdd3;
+  --warning: #ffd140;
+  --light-warning: #fff2c6;
+  --success: #3cae8b;
+  --light-success: #bbf7d0;
+  --neutral-200: #e8eaed;
+  --neutral-100: #f1f3f4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background: var(--grey);
+}
+
+body.dark {
+  --light: #181a1e;
+  --grey: #25252c;
+  --dark: #fbfbfb;
+  --primary: #0171df;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: var(--light);
+  width: 72px;
+  height: 100%;
+  z-index: 1000;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  transition: all 0.3s ease;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.sidebar .side-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 208px;
+  margin-left: 16px;
+  width: max-content;
+  background-color: transparent;
+}
+
+.sidebar .side-menu li {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  padding: 12px;
+  position: relative;
+}
+
+.sidebar .side-menu li.active {
+  background: var(--primary);
+}
+
+.sidebar .side-menu li.active::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  height: calc(100% + 0.5px);
+  width: calc(100% + 0.5px);
+  border: 2px solid #c1c7d4;
+  border-radius: 50%;
+}
+
+.sidebar .side-menu li.active i {
+  color: var(--light);
+}
+
+.sidebar .side-menu li a {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: var(--light);
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.sidebar .side-menu li a i {
+  color: var(--dark-grey);
+}
+
+nav {
+  height: 80px;
+  background: var(--light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  padding-left: 20px;
+  padding-right: 24px;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+nav .logo img {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  color: var(--primary);
+  box-sizing: content-box;
+}
+
+nav .nav-menu {
+  display: flex;
+  flex-direction: row;
+  width: max-content;
+  height: 100%;
+  background-color: transparent;
+}
+
+nav .nav-menu.menu {
+  gap: 40px;
+}
+
+nav .nav-menu li {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  text-align: center;
+  color: var(--dark-grey);
+  height: 100%;
+  min-width: 60px;
+  background-color: transparent;
+}
+
+nav .nav-menu.menu li.active {
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+nav .nav-menu li i {
+  margin-left: 18px;
+}
+
+nav .nav-menu.menu-right li {
+  color: var(--dark);
+}
+
+nav .nav-menu.menu-right li.user-name {
+  width: 132px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+
+nav .nav-menu.menu-right li.user-name .name {
+  color: var(--dark);
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+nav .nav-menu.menu-right li.user-name .nim {
+  color: var(--dark-grey);
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+nav .nav-menu li.user-profile {
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+nav .nav-menu li.user-profile img {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  margin-left: 16px;
+}
+
+nav .nav-menu li.user-profile i {
+  color: var(--dark-grey);
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* second nav */
+
+nav .nav-menu.menu-bottom {
+  gap: 20px;
+  align-items: center;
+}
+
+nav .nav-menu.menu-bottom li {
+  width: 44px;
+  height: 44px;
+  background-color: var(--neutral-100);
+  border-radius: 8px;
+}
+
+nav .nav-menu.menu-bottom li i {
+  font-size: 20px;
+  text-align: center;
+}
+
+nav .logo-name {
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+nav .logo-name span {
+  color: var(--warning);
+}
+
+.content {
+    position: relative;
+    width: calc(100% - 72px);
+    left: 72px;
+  }
